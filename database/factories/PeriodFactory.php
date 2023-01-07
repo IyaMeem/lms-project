@@ -17,7 +17,7 @@ class PeriodFactory extends Factory
     public function definition()
     {
         return [
-            'number' => $this->faker->numberBetween(1, 10),
+            'name' => $this->faker->sentence,
             'course_id' => 1
         ];
     }

@@ -21,24 +21,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $user = new User();
-        $user->name = 'Super Admin';
-        $user->email = 'suder@admin.com';
-        $user->password = bcrypt('password');
-        $user->save();
 
-        $role = Role::create([
-            'name' => 'Super Admin'
-        ]);
-
-        $permission = Permission::create([
-            'name' => 'create-admin'
-        ]);
-
-        $role->givePermissionTo($permission);
-        $permission->assignRole($role);
-
-        $user->assignRole($role);
+        $this->create_user_with_role('Super Admin', 'Super Admin', 'suder-admin@lms.test');
+        $this->create_user_with_role('Communication', 'Communication Team', 'communication@lms.test');
+        $teacher = $this->create_user_with_role('Teacher', 'Teacher', 'teacher@lms.test');
 
         // create leads
         Lead::factory()->count(100)->create();
@@ -46,9 +32,34 @@ class DatabaseSeeder extends Seeder
        $course = Course::create([
             'name' => 'Laravel',
             'description' =>'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
-            'image' => 'https://laravel.com/img/logomark.min.svg'
+            'image' => 'https://laravel.com/img/logomark.min.svg',
+            'user_id' => $teacher->id
         ]);
 
         Period::factory()->count(10)->create();
+    }
+
+    private function create_user_with_role($type, $name, $email) {
+        $role = Role::create([
+            'name' => $type
+        ]);
+
+        $user = User::create([
+            'name' => '$name',
+            'email' => '$email',
+            'password' => bcrypt('password')
+
+        ]);
+
+        if($type == 'Super Admin') {
+            $permission = Permission::create([
+                'name' => 'create-admin'
+            ]);
+            $role->givePermissionTo($permission);
+        }
+
+        $user->assignRole($role);
+
+        return $user;
     }
 }

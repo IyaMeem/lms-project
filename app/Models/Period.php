@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Period extends Model
 {
+    protected $table = 'periods';
+
     use HasFactory;
 
     public function homeworks() {
