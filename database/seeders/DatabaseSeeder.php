@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
         $teacher = $this->create_user_with_role('Teacher', 'Teacher', 'teacher@lms.test');
 
         // create leads
-        Lead::factory()->count(100)->create();
+        Lead::factory(100)->create();
 
        $course = Course::create([
             'name' => 'Laravel',
@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => $teacher->id
         ]);
 
-        Period::factory()->count(10)->create();
+        Period::factory(10)->create();
     }
 
     private function create_user_with_role($type, $name, $email) {
