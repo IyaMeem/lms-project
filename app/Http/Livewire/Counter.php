@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Flasher\Prime\FlasherInterface;
 use Livewire\Component;
 
 class Counter extends Component
@@ -11,5 +12,10 @@ class Counter extends Component
     public function render()
     {
         return view('livewire.counter');
+    }
+
+    public function increase(FlasherInterface $flasher, $value) {
+        $flasher->addSuccess('Successfully Message ' . $value);
+        $this->count++;
     }
 }
