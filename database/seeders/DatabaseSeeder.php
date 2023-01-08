@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->create_user_with_role('Super Admin', 'Super Admin', 'suder-admin@lms.test');
         $this->create_user_with_role('Communication', 'Communication Team', 'communication@lms.test');
         $teacher = $this->create_user_with_role('Teacher', 'Teacher', 'teacher@lms.test');
+        $this->create_user_with_role('Leads', 'Leads', 'leads@lms.test');
 
         // create leads
         Lead::factory(100)->create();
@@ -45,8 +46,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $user = User::create([
-            'name' => '$name',
-            'email' => '$email',
+            'name' => $name,
+            'email' => $email,
             'password' => bcrypt('password')
 
         ]);
