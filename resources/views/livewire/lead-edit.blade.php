@@ -42,7 +42,7 @@
 
     <form wire:submit.prevent="addNote">
         <div class="mb-4">
-            <textarea wire:model.lazy="note" class="lms-input" placeholder="Type note">Add New</textarea>
+            <textarea wire:model.lazy="note" class="lms-input" placeholder="Type note"></textarea>
         </div>
         
         <button class="lms-btn" type="submit">Save</button>
