@@ -12,4 +12,8 @@ class Course extends Model
     public function periods() {
         return $this->hasMany(Period::class);
     }
+
+    public function students() {
+        return $this->belongsToMany(User::class, 'course_student', 'course_id', 'user_id');
+    }
 }
