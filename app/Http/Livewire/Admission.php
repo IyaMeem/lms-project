@@ -9,6 +9,7 @@ use Livewire\Component;
 use Illuminate\Support\Str;
 use App\Models\Invoice;
 use App\Models\InvoiceItem;
+use App\Models\Payment;
 
 class Admission extends Component
 {
@@ -16,6 +17,7 @@ class Admission extends Component
     public $leads = [];
     public $lead_id;
     public $course_id;
+    public $payment;
     public $selectedCourse;
 
     public function render()
@@ -34,7 +36,7 @@ class Admission extends Component
     }
 
     public function courseSelected() {
-        $this->selectedCourse = Course::find($this->course_id);
+        $this->selectedCourse = Course::findOrFail($this->course_id);
         //dd('test');
     }
 
@@ -59,6 +61,15 @@ class Admission extends Component
             'quantity' => 1,
             'invoice_id' => $invoice->id
         ]);
+
+        $this->selectedCourse->students()->attach($user->id);
+
+        if(!empty($this->payment)) {
+            Payment::create( [
+                'amount' => $this->payment,
+                'invoice_id' => $invoice->id,
+            ]);
+        }
 
         $this->selectedCourse = null;
         $this->course_id = null;
