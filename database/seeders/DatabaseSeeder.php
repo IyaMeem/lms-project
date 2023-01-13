@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             Permission::create(['name' => $permission]);
         }
 
-        $this->create_user_with_role('Super Admin', 'Super Admin', 'suder-admin@lms.test');
+        $this->create_user_with_role('Super Admin', 'Super Admin', 'super-admin@lms.test');
         $this->create_user_with_role('Communication', 'Communication Team', 'communication@lms.test');
         $teacher = $this->create_user_with_role('Teacher', 'Teacher', 'teacher@lms.test');
         $this->create_user_with_role('Leads', 'Leads', 'leads@lms.test');

@@ -28,19 +28,18 @@ class Invoice extends Model
         return $this->hasMany(Payment::class);
     }
 
-    public function amount($id) {
-        $invoice = Invoice::findOrFail($id);
+    public function amount() {
         $amounts = [
             'total' => 0,
             'paid' => 0,
             'due' => 0,
         ]; 
 
-        foreach($invoice->items as $item) {
-            $amounts['total'] += $item->price = $item->quantity;
+        foreach($this->items as $item) {
+            $amounts['total'] += $item->price * $item->quantity;
         }
 
-        foreach($invoice->payments as $payment) {
+        foreach($this->payments as $payment) {
             $amounts['paid'] += $payment->amount;
         }
 

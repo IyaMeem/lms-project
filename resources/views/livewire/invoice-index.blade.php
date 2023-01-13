@@ -13,16 +13,22 @@
         @foreach ($invoices as $invoice)
             <tr>
                 <td class="border px-4 py-2">{{ $invoice->id }}</td>
-                <td class="border px-4 py-2">{{ $invoice->user->namel }}</td>
+                <td class="border px-4 py-2">{{ $invoice->user->name}}</td>
                 <td class="border px-4 py-2">{{ date('F j, Y', strtotime($invoice->due_date)) }}</td>
-                <td class="border px-4 py-2 text-center">{{ $invoice->amount($invoice_id) ['total']}} </td>
-                <td class="border px-4 py-2 text-center">{{ $invoice->amount($invoice_id) ['paid']}} </td>
-                <td class="border px-4 py-2 text-center">{{ $invoice->amount($invoice_id) ['due']}} </td>
+                <td class="border px-4 py-2 text-center">{{ $invoice->amount() ['total']}} </td>
+                <td class="border px-4 py-2 text-center">{{ $invoice->amount() ['paid']}} </td>
+                <td class="border px-4 py-2 text-center">{{ $invoice->amount() ['due']}} </td>
                 <td class="border px-4 py-2 text-center">
                     <div class="flex items-center justify-center">
+
                         <a class="px-2" href="">
+                            @include('components.icons.edit')
+                        </a>
+
+                        <a class="px-2" href="{{ route('invoice-show', $invoice->id) }}">
                             @include('components.icons.eye')
                         </a>
+
                         <form class="mt-2" onsubmit="return confirm('Are you sure Delete it?');" wire:submit.prevent="invoiceDelete({{$invoice->id}})">
                             <button type="submit">
                                   @include('components.icons.delete')
