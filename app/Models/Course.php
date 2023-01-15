@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'name', 'description', 'price', 'slug', 'user_id'
+    ];
 
     public function periods() {
         return $this->hasMany(Period::class);

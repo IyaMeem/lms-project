@@ -18,7 +18,11 @@ class PeriodFactory extends Factory
     {
         return [
             'name' => $this->faker->sentence,
-            'course_id' => 1
+            'course_id' => 1,
+            'week_day' => 'Sunday',
+            'class_time' => '10:00',
+            'end_date' => $this->faker->date,
+            'class_date' => $this->faker->date,
         ];
     }
 }

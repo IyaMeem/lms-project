@@ -10,6 +10,9 @@ class Period extends Model
     protected $table = 'periods';
 
     use HasFactory;
+    protected $fillable=[
+        'name', 'week_day', 'class_time', 'end_date', 'class_date', 'course_id'
+    ];
 
     public function homeworks() {
         return $this->hasMany(HomeWork::class);
