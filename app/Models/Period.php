@@ -21,4 +21,13 @@ class Period extends Model
     public function attendances() {
         return $this->hasMany(Attendance::class);
     }
+
+    public function notes() {
+        return $this->belongsToMany(Note::class, 'period_note', 'period_id', 'note_id');
+    }
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
 }

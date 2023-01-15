@@ -3,6 +3,7 @@
         <tr>
             <th class="border px-4 py-2 text-left">Name</th>
             <th class="border px-4 py-2 text-left">Price</th>
+            <th class="border px-4 py-2 text-center">Date</th>
             <th class="border px-4 py-2">Actions</th>
         </tr>
 
