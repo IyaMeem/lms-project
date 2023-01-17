@@ -1,7 +1,7 @@
 <div class="mx-auto p-4 text-gray-800">
-    <h1 class="font-bold mb-2 underline">{{ $class->course->name }}</h1>
-    <p class="mb-4 italic">Price: ${{ $class->course->price }}</p>
-    <p class="pb-6">{{ $class->course->description }}</p>
+    <h1 class="font-bold mb-2 underline">{{ $period->course->name }}</h1>
+    <p class="mb-4 italic">Price: ${{ $period->course->price }}</p>
+    <p class="pb-6">{{ $period->course->description }}</p>
 
     <h2 class="font-bold mb-2">Classes</h2>
     <table class="w-full table-auto">
@@ -11,7 +11,7 @@
             <th class="border px-4 py-2">Actions</th>
         </tr>
 
-        @foreach ($class->course->students as $student)
+        @foreach ($period->course->students as $student)
         <tr>
             <th class="px-4 py-2 border text-left font-normal">{{ $student->name }}</th>
             <th class="px-4 py-2 border text-left font-normal">{{ $student->email }}</th>

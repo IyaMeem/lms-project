@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class PeriodController extends Controller
 {
     public function show($id){
-        return view('course.preoid.show', [
+        return view('course.period.show', [
             'id' => $id,
         ]);
     }
