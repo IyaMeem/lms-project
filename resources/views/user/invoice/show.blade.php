@@ -23,10 +23,10 @@
                                 <input value="4242424242424242" name="card_no" type="number" class="lms-input" placeholder="Card number">
                             </div>
                             <div class="min-w-max ml-4">
-                                <input value="12/30" name="card_expiry_date" type="text" class="lms-input" placeholder="Expiry month/year">
+                                <input value="02/01" name="card_expiry_date" type="text" class="lms-input" placeholder="Expiry month/year">
                             </div>
                             <div class="min-w-max ml-4">
-                                <input value="232" name="card_ccv" type="text" class="lms-input" placeholder="CCV">
+                                <input value="2323" name="card_ccv" type="text" class="lms-input" placeholder="CCV">
                             </div>
                             <div class="min-w-max ml-4">
                                 <input name="amount" type="number" class="lms-input" value="{{number_format($invoice->amount()['due'], 2)}}" placeholder="Amount">
@@ -36,8 +36,6 @@
                         <button type="submit" class="lms-btn">Pay Now</button>
                     </form>
                     @endif
-
-
                 </div>
             </div>
         </div>

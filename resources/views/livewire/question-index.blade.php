@@ -29,7 +29,7 @@
                     <form class="ml-1" onsubmit="return confirm('Are you sure?');"
                         wire:submit.prevent="questionDelete({{$question->id}})">
                         <button type="submit">
-                            @include('components.icons.trash')
+                            @include('components.icons.delete')
                         </button>
                     </form>
                 </div>
